@@ -1,0 +1,15 @@
+C:\Users\User\git\kinneko-de\poc-mcp-csharp-count-words\bin\Debug\net8.0\CharacterCounterMcp.exe
+C:\Users\User\git\kinneko-de\poc-mcp-csharp-count-words\bin\Debug\net8.0\CharacterCounterMcp.deps.json
+C:\Users\User\git\kinneko-de\poc-mcp-csharp-count-words\bin\Debug\net8.0\CharacterCounterMcp.runtimeconfig.json
+C:\Users\User\git\kinneko-de\poc-mcp-csharp-count-words\bin\Debug\net8.0\CharacterCounterMcp.dll
+C:\Users\User\git\kinneko-de\poc-mcp-csharp-count-words\bin\Debug\net8.0\CharacterCounterMcp.pdb
+C:\Users\User\git\kinneko-de\poc-mcp-csharp-count-words\obj\Debug\net8.0\CharacterCounterMcp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\git\kinneko-de\poc-mcp-csharp-count-words\obj\Debug\net8.0\CharacterCounterMcp.AssemblyInfoInputs.cache
+C:\Users\User\git\kinneko-de\poc-mcp-csharp-count-words\obj\Debug\net8.0\CharacterCounterMcp.AssemblyInfo.cs
+C:\Users\User\git\kinneko-de\poc-mcp-csharp-count-words\obj\Debug\net8.0\CharacterCounterMcp.csproj.CoreCompileInputs.cache
+C:\Users\User\git\kinneko-de\poc-mcp-csharp-count-words\obj\Debug\net8.0\CharacterCounterMcp.sourcelink.json
+C:\Users\User\git\kinneko-de\poc-mcp-csharp-count-words\obj\Debug\net8.0\CharacterCounterMcp.dll
+C:\Users\User\git\kinneko-de\poc-mcp-csharp-count-words\obj\Debug\net8.0\refint\CharacterCounterMcp.dll
+C:\Users\User\git\kinneko-de\poc-mcp-csharp-count-words\obj\Debug\net8.0\CharacterCounterMcp.pdb
+C:\Users\User\git\kinneko-de\poc-mcp-csharp-count-words\obj\Debug\net8.0\CharacterCounterMcp.genruntimeconfig.cache
+C:\Users\User\git\kinneko-de\poc-mcp-csharp-count-words\obj\Debug\net8.0\ref\CharacterCounterMcp.dll

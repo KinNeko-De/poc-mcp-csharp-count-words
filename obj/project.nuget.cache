@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "O7UluZc5afo=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\User\\git\\kinneko-de\\poc-mcp-csharp-count-words\\CharacterCounterMcp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\User\\.nuget\\packages\\system.text.json\\8.0.5\\system.text.json.8.0.5.nupkg.sha512"
+  ],
+  "logs": []
+}
