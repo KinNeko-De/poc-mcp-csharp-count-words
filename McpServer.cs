@@ -31,6 +31,8 @@ public class McpServer
         using var reader = new StreamReader(stdin);
         using var writer = new StreamWriter(stdout) { AutoFlush = true };
 
+        await Console.Error.WriteLineAsync("[MCP] Server ready and listening for requests...");
+
         while (true)
         {
             var line = await reader.ReadLineAsync();
@@ -38,16 +40,24 @@ public class McpServer
 
             try
             {
+                await Console.Error.WriteLineAsync($"[MCP] Received request: {line}");
+                
                 var request = JsonSerializer.Deserialize<McpRequest>(line, _jsonOptions);
                 if (request != null)
                 {
+                    await Console.Error.WriteLineAsync($"[MCP] Processing method: {request.Method}");
+                    
                     var response = await HandleRequestAsync(request);
                     var responseJson = JsonSerializer.Serialize(response, _jsonOptions);
+                    
+                    await Console.Error.WriteLineAsync($"[MCP] Sending response for {request.Method}");
                     await writer.WriteLineAsync(responseJson);
                 }
             }
             catch (Exception ex)
             {
+                await Console.Error.WriteLineAsync($"[MCP] Error processing request: {ex.Message}");
+                
                 var errorResponse = new McpResponse
                 {
                     Id = null,
@@ -85,6 +95,8 @@ public class McpServer
 
     private McpResponse HandleInitialize(McpRequest request)
     {
+        Console.Error.WriteLine("[MCP] Initializing server with protocol version 2024-11-05");
+        
         var result = new InitializeResult
         {
             ProtocolVersion = "2024-11-05",
@@ -108,6 +120,8 @@ public class McpServer
 
     private McpResponse HandleToolsList(McpRequest request)
     {
+        Console.Error.WriteLine("[MCP] Listing available tools (3 character counting tools)");
+        
         var tools = CharacterCounter.GetTools();
         var result = new { tools = tools };
 
@@ -133,7 +147,12 @@ public class McpServer
                 throw new ArgumentException("Failed to deserialize tool call parameters");
             }
 
+            Console.Error.WriteLine($"[MCP] Executing tool: {toolCall.Name}");
+            Console.Error.WriteLine($"[MCP] Tool arguments: {JsonSerializer.Serialize(toolCall.Arguments)}");
+
             var result = CharacterCounter.ExecuteTool(toolCall.Name, toolCall.Arguments);
+
+            Console.Error.WriteLine($"[MCP] Tool execution completed successfully");
 
             return new McpResponse
             {
@@ -143,6 +162,8 @@ public class McpServer
         }
         catch (Exception ex)
         {
+            Console.Error.WriteLine($"[MCP] Tool execution failed: {ex.Message}");
+            
             return new McpResponse
             {
                 Id = request.Id,

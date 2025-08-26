@@ -119,12 +119,16 @@ public class CharacterCounter
         var text = GetStringArgument(arguments, "text");
         var character = GetStringArgument(arguments, "character");
 
+        Console.Error.WriteLine($"[TOOL] count_characters: Counting '{character}' in \"{text}\" (case-sensitive)");
+
         if (character.Length != 1)
         {
             throw new ArgumentException("Character must be a single character");
         }
 
         var count = text.Count(c => c == character[0]);
+
+        Console.Error.WriteLine($"[TOOL] count_characters: Found {count} occurrences");
 
         var result = new
         {
@@ -153,6 +157,8 @@ public class CharacterCounter
         var text = GetStringArgument(arguments, "text");
         var character = GetStringArgument(arguments, "character");
 
+        Console.Error.WriteLine($"[TOOL] count_characters_ignore_case: Counting '{character}' in \"{text}\" (case-insensitive)");
+
         if (character.Length != 1)
         {
             throw new ArgumentException("Character must be a single character");
@@ -161,6 +167,8 @@ public class CharacterCounter
         var lowerText = text.ToLowerInvariant();
         var lowerChar = char.ToLowerInvariant(character[0]);
         var count = lowerText.Count(c => c == lowerChar);
+
+        Console.Error.WriteLine($"[TOOL] count_characters_ignore_case: Found {count} occurrences");
 
         var result = new
         {
@@ -189,6 +197,8 @@ public class CharacterCounter
     {
         var text = GetStringArgument(arguments, "text");
 
+        Console.Error.WriteLine($"[TOOL] get_character_stats: Analyzing character statistics for \"{text}\"");
+
         var charCounts = new Dictionary<char, int>();
         foreach (var c in text)
         {
@@ -200,6 +210,8 @@ public class CharacterCounter
             .ThenBy(kvp => kvp.Key)
             .Select(kvp => new { character = kvp.Key.ToString(), count = kvp.Value })
             .ToList();
+
+        Console.Error.WriteLine($"[TOOL] get_character_stats: Found {charCounts.Count} unique characters in {text.Length} total characters");
 
         var result = new
         {
